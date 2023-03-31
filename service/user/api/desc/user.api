@@ -1,0 +1,23 @@
+syntax = "v1"
+
+info(
+	title: "用户中心服务"
+	desc: "用户中心服务"
+	author: "chentong"
+	version: "v1"
+)
+
+import "types/types.api"
+
+service User {
+	@handler Login
+	post /api/user/login (LoginRequest) returns (LoginResponse)
+}
+
+@server(
+	jwt: Auth
+)
+service User {
+	@handler UserInfo
+	post /api/user/info (UserInfoRequest) returns (UserInfoResponse)
+}

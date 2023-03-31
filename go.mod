@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/jinzhu/copier v0.3.5
+	github.com/meehow/go-django-hashers v0.0.0-20171231135116-5e5d6afe52db
 	github.com/zeromicro/go-zero v1.5.0
 	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0
@@ -71,6 +72,7 @@ require (
 	go.uber.org/automaxprocs v1.5.1 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
+	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect

@@ -10,3 +10,24 @@ type LoginResponse struct {
 	AccessToken  string `json:"accessToken"`
 	AccessExpire int64  `json:"accessExpire"`
 }
+
+type UserInfoRequest struct {
+	Id int64 `json:"id"`
+}
+
+type UserInfoResponse struct {
+	Id          int64  `json:"id"`
+	LastLogin   string `json:"lastLogin"`
+	IsSuperuser int64  `json:"isSuperuser"`
+	Username    string `json:"username"`
+	FirstName   string `json:"firstName"`
+	LastName    string `json:"lastName"`
+	Email       string `json:"email"`
+	IsStaff     int64  `json:"isStaff"`
+	IsActive    int64  `json:"isActive"`
+	DateJoined  int64  `json:"dateJoined"`
+	Nickname    string `json:"nickname"`
+	Text        string `json:"text"`
+	Link        string `json:"link"`
+	AvatarUrl   string `json:"avatarUrl"`
+}
