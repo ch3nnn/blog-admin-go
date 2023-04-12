@@ -1,9 +1,15 @@
 Name: user.rpc
 ListenOn: 0.0.0.0:8080
-Etcd:
-  Hosts:
-    - 127.0.0.1:2379
-  Key: user.rpc
+
+Consul:
+  Host: 127.0.0.1:8500 # consul endpoint
+  Token:
+  Key: user.rpc # service name registered to Consul
+  Meta:
+    Protocol: grpc
+  Tag:
+    - tag
+    - rpc
 
 
 Mysql:

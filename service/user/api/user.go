@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	_ "github.com/zeromicro/zero-contrib/zrpc/registry/consul"
 
 	"github.com/ch3nnn/blog-admin-go/service/user/api/internal/config"
 	"github.com/ch3nnn/blog-admin-go/service/user/api/internal/handler"
