@@ -28,7 +28,7 @@ func main() {
 
 	// 读取 consul 配置中心
 	var c config.Config
-	commonConfig.LoadYAMLConf(commonConfig.ConsulConfig.NewClient(consulConfig), "user-rpc", &c)
+	commonConfig.LoadYAMLConf(commonConfig.ConsulConfig.NewClient(consulConfig), consulConfig.Consul.Key, &c)
 
 	ctx := svc.NewServiceContext(c)
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {

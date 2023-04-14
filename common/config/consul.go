@@ -1,12 +1,11 @@
 package config
 
 import (
-	"encoding/json"
 	"errors"
-	"github.com/zeromicro/zero-contrib/zrpc/registry/consul"
-	"gopkg.in/yaml.v2"
-
+	"github.com/ch3nnn/blog-admin-go/common/encoding"
+	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/zeromicro/zero-contrib/zrpc/registry/consul"
 
 	"github.com/hashicorp/consul/api"
 )
@@ -45,7 +44,11 @@ func LoadYAMLConf(client *api.Client, key string, v interface{}) {
 	kv := client.KV()
 
 	data, _, err := kv.Get(key, nil)
-	err = yaml.Unmarshal(data.Value, v)
+	b, err := encoding.YamlToJson(data.Value)
+	if err != nil {
+		logx.Must(err)
+	}
+	err = conf.LoadFromJsonBytes(b, v)
 	logx.Must(err)
 }
 
@@ -54,6 +57,6 @@ func LoadJSONConf(client *api.Client, key string, v interface{}) {
 	kv := client.KV()
 
 	data, _, err := kv.Get(key, nil)
-	err = json.Unmarshal(data.Value, v)
+	err = conf.LoadFromJsonBytes(data.Value, v)
 	logx.Must(err)
 }
